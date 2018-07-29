@@ -89,6 +89,7 @@
     "@lykmapipo/express-common": "^0.6.0",
     "async": "^2.6.1",
     "express": "^4.16.3",
+    "inflection": "^1.12.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "mongoose-geojson-schemas": "^0.5.0",

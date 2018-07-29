@@ -62,6 +62,8 @@ exports.info = info;
 
 
 /* export party model */
+exports.Permission = Permission;
+exports.Role = Role;
 exports.Party = Party;
 
 

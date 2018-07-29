@@ -14,7 +14,7 @@ function sample() {
     landline: faker.phone.phoneNumber(),
     fax: faker.phone.phoneNumber(),
     email: faker.internet.email(),
-    website: faker.internet.domainName(),
+    website: faker.internet.url(),
     about: faker.lorem.paragraph(),
     physicalAddress: faker.address.streetAddress(),
     postalAddress: faker.address.streetAddress(),

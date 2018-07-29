@@ -34,7 +34,8 @@
     "hazard",
     "emergency"
   ],
-  "contributors": [{
+  "contributors": [
+    {
       "name": "lykmapipo",
       "email": "lallyelias87@gmail.com",
       "url": "https://github.com/lykmapipo"
@@ -54,7 +55,16 @@
   "sandbox": {
     "url": "https://emis-asat.herokuapp.com",
     "client_id": "",
-    "client_secret": ""
+    "client_secret": "",
+    "urls": [
+      {
+        "resource": "Party",
+        "link": "https://emis-asat.herokuapp.com/v1/parties",
+        "scopes": [
+          "parties:*"
+        ]
+      }
+    ]
   },
   "devDependencies": {
     "@benmaruchu/faker": "^4.2.1",

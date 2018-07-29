@@ -6,6 +6,8 @@
 
 >WIP
 
+![EMIS ASAT Domain Model](https://raw.githubusercontent.com/CodeTanzania/emis-asat/develop/asat.png)
+
 ## Requirements
 
 - [NodeJS v8.11.1+](https://nodejs.org)

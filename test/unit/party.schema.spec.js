@@ -33,6 +33,20 @@ describe('Party', function () {
 
     });
 
+    it('should have avatar field', function () {
+
+      const avatar = Party.schema.tree.avatar;
+      const instance = Party.schema.paths.avatar.instance;
+
+      expect(instance).to.be.equal('String');
+      expect(avatar).to.exist;
+      expect(avatar).to.be.an('object');
+      expect(avatar.type).to.be.a('function');
+      expect(avatar.type.name).to.be.equal('String');
+      expect(avatar.trim).to.be.true;
+
+    });
+
     it('should have phone field', function () {
 
       const phone = Party.schema.tree.phone;

@@ -10,6 +10,7 @@ const { randomPoint } = require('mongoose-geojson-schemas');
 function sample() {
   return {
     name: faker.address.county(),
+    avatar: faker.image.avatar(),
     phone: faker.phone.phoneNumber(),
     landline: faker.phone.phoneNumber(),
     fax: faker.phone.phoneNumber(),

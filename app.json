@@ -1,0 +1,38 @@
+{
+  "name": "emis-asat",
+  "description": "WIP",
+  "repository": "https://github.com/CodeTanzania/emis-asat.git",
+  "keywords": [
+    "codetanzania",
+    "emis",
+    "emis-module",
+    "asat",
+    "jurisdiction",
+    "municipal",
+    "agency",
+    "sector",
+    "actor",
+    "activity",
+    "task",
+    "division",
+    "zone",
+    "branch",
+    "lga",
+    "popolo",
+    "opencivic"
+  ],
+  "addons": [
+    "mongolab"
+  ],
+  "env":
+  {
+    "NPM_CONFIG_PRODUCTION":
+    {
+      "value": "false"
+    },
+    "YARN_PRODUCTION":
+    {
+      "value": "false"
+    }
+  }
+}

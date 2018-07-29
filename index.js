@@ -44,6 +44,10 @@ const info = _.merge({}, _.pick(pkg, fields));
 
 
 /* import models */
+const Permission =
+  require(path.join(__dirname, 'lib', 'permission.model'));
+const Role =
+  require(path.join(__dirname, 'lib', 'role.model'));
 const Party =
   require(path.join(__dirname, 'lib', 'party.model'));
 

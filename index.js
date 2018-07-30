@@ -22,6 +22,8 @@
 const path = require('path');
 const _ = require('lodash');
 const app = require('@lykmapipo/express-common');
+const mongoose = require('mongoose');
+require('mongoose-schema-jsonschema')(mongoose);
 
 
 /* declarations */
@@ -58,6 +60,11 @@ const router =
 
 
 /* export package(module) info */
+info.definitions = {
+  Permission: Permission.jsonSchema(),
+  Role: Role.jsonSchema(),
+  Party: Party.jsonSchema(),
+};
 exports.info = info;
 
 

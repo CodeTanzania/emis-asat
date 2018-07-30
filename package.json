@@ -102,6 +102,7 @@
     "mongoose-geojson-schemas": "^0.5.0",
     "mongoose-locale-schema": "^0.2.0",
     "mongoose-rest-actions": "^0.15.3",
+    "mongoose-schema-jsonschema": "^1.1.15",
     "randomcolor": "^0.5.3"
   },
   "engines": {

@@ -44,6 +44,16 @@ describe('Party', function () {
       expect(Party.MODEL_NAME).to.be.equal('Party');
     });
 
+    it('should expose default locale as constant', function () {
+      expect(Party.DEFAULT_LOCALE).to.exist;
+      expect(Party.DEFAULT_LOCALE).to.be.a('string');
+    });
+
+    it('should expose acceptable locales as constant', function () {
+      expect(Party.LOCALES).to.exist;
+      expect(Party.LOCALES).to.be.an('array');
+    });
+
   });
 
 

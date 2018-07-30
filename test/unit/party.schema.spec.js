@@ -176,6 +176,24 @@ describe('Party', function () {
 
     });
 
+    it('should have locale field', function () {
+
+      const locale = Party.schema.tree.locale;
+      const instance = Party.schema.paths.locale.instance;
+
+      expect(instance).to.be.equal('String');
+      expect(locale).to.exist;
+      expect(locale).to.be.an('object');
+      expect(locale.type).to.be.a('function');
+      expect(locale.type.name).to.be.equal('String');
+      expect(locale.trim).to.be.true;
+      expect(locale.enum).to.exist;
+      expect(locale.index).to.be.true;
+      expect(locale.default).to.exist;
+      expect(locale.searchable).to.be.true;
+
+    });
+
 
     describe('location', function () {
 

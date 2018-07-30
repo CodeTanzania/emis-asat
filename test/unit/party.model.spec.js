@@ -47,11 +47,25 @@ describe('Party', function () {
     it('should expose default locale as constant', function () {
       expect(Party.DEFAULT_LOCALE).to.exist;
       expect(Party.DEFAULT_LOCALE).to.be.a('string');
+      expect(Party.DEFAULT_LOCALE).to.not.be.empty;
     });
 
     it('should expose acceptable locales as constant', function () {
       expect(Party.LOCALES).to.exist;
       expect(Party.LOCALES).to.be.an('array');
+      expect(Party.LOCALES).to.have.length.at.least(1);
+    });
+
+    it('should expose default party type as constant', function () {
+      expect(Party.DEFAULT_PARTY_TYPE).to.exist;
+      expect(Party.DEFAULT_PARTY_TYPE).to.be.a('string');
+      expect(Party.DEFAULT_PARTY_TYPE).to.not.be.empty;
+    });
+
+    it('should expose acceptable party types as constant', function () {
+      expect(Party.PARTY_TYPES).to.exist;
+      expect(Party.PARTY_TYPES).to.be.an('array');
+      expect(Party.PARTY_TYPES).to.have.length.at.least(1);
     });
 
   });

@@ -16,6 +16,24 @@ describe('Party', function () {
 
   describe('Schema', function () {
 
+    it('should have type field', function () {
+
+      const type = Party.schema.tree.type;
+      const instance = Party.schema.paths.type.instance;
+
+      expect(instance).to.be.equal('String');
+      expect(type).to.exist;
+      expect(type).to.be.an('object');
+      expect(type.type).to.be.a('function');
+      expect(type.type.name).to.be.equal('String');
+      expect(type.trim).to.be.true;
+      expect(type.enum).to.exist;
+      expect(type.index).to.be.true;
+      expect(type.default).to.exist;
+      expect(type.searchable).to.be.true;
+
+    });
+
     it('should have name field', function () {
 
       const name = Party.schema.tree.name;

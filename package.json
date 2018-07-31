@@ -54,6 +54,7 @@
   "homepage": "https://github.com/CodeTanzania/emis-asat",
   "sandbox": {
     "url": "https://emis-asat.herokuapp.com",
+    "schema": "https://emis-asat.herokuapp.com/v1/schema",
     "client_id": "",
     "client_secret": "",
     "urls": [
@@ -83,7 +84,7 @@
     "grunt-mocha-test": "^0.13.3",
     "jshint-stylish": "^2.2.1",
     "mocha": "^5.2.0",
-    "mongoose": "^5.2.5",
+    "mongoose": "^5.2.6",
     "nodemon": "^1.18.3",
     "sinon": "^6.1.4",
     "sinon-chai": "^3.2.0",

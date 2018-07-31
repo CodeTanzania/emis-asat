@@ -45,6 +45,10 @@ const fields = [
 const info = _.merge({}, _.pick(pkg, fields));
 
 
+/* export package(module) info */
+exports.info = info;
+
+
 /* import models */
 const Permission =
   require(path.join(__dirname, 'lib', 'permission.model'));
@@ -54,24 +58,22 @@ const Party =
   require(path.join(__dirname, 'lib', 'party.model'));
 
 
-/* import routers*/
-const router =
-  require(path.join(__dirname, 'lib', 'party.http.router'));
-
-
-/* export package(module) info */
-info.definitions = {
-  Permission: Permission.jsonSchema(),
-  Role: Role.jsonSchema(),
-  Party: Party.jsonSchema(),
-};
-exports.info = info;
-
-
 /* export party model */
 exports.Permission = Permission;
 exports.Role = Role;
 exports.Party = Party;
+
+
+/* export schema definition */
+exports.definitions = {
+  Permission: Permission.jsonSchema(),
+  Role: Role.jsonSchema(),
+  Party: Party.jsonSchema(),
+};
+
+
+/* import routers*/
+const router = require(path.join(__dirname, 'lib', 'party.http.router'));
 
 
 /* export party router */

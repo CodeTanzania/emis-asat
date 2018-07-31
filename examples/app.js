@@ -12,7 +12,13 @@ const _ = require('lodash');
 const async = require('async');
 const mongoose = require('mongoose');
 // mongoose.set('debug', true);
-const { Party, router, info, app } = require(path.join(__dirname, '..'));
+const {
+  Party,
+  router,
+  info,
+  app,
+  definitions
+} = require(path.join(__dirname, '..'));
 let samples = require('./samples')(20);
 
 
@@ -40,12 +46,16 @@ function boot() {
 
   ], function (error, results) {
 
-    console.log(error);
-
     /* expose module info */
     app.get('/', function (request, response) {
       response.status(200);
       response.json(info);
+    });
+
+    /* expose schema info */
+    app.get(`/v${router.apiVersion}/schema`, function (request, response) {
+      response.status(200);
+      response.json({ definitions });
     });
 
     /* fire the app */

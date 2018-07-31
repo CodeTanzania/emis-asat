@@ -34,8 +34,7 @@
     "hazard",
     "emergency"
   ],
-  "contributors": [
-    {
+  "contributors": [{
       "name": "lykmapipo",
       "email": "lallyelias87@gmail.com",
       "url": "https://github.com/lykmapipo"
@@ -57,12 +56,11 @@
     "schema": "https://emis-asat.herokuapp.com/v1/schema",
     "client_id": "",
     "client_secret": "",
-    "urls": [
-      {
+    "urls": [{
         "resource": "Party",
         "link": "https://emis-asat.herokuapp.com/v1/parties",
         "scopes": [
-          "parties:*"
+          "party:*"
         ],
         "methods": [
           "get",
@@ -75,11 +73,23 @@
         "resource": "Role",
         "link": "https://emis-asat.herokuapp.com/v1/roles",
         "scopes": [
-          "roles:*"
+          "role:*"
         ],
         "methods": [
           "get",
           "post",
+          "put",
+          "patch"
+        ]
+      },
+      {
+        "resource": "Permission",
+        "link": "https://emis-asat.herokuapp.com/v1/permissions",
+        "scopes": [
+          "permission:*"
+        ],
+        "methods": [
+          "get",
           "put",
           "patch"
         ]

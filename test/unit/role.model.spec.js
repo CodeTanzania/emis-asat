@@ -44,6 +44,18 @@ describe('Role', function () {
       expect(Role.MODEL_NAME).to.be.equal('Role');
     });
 
+    it('should expose default role type as constant', function () {
+      expect(Role.DEFAULT_ROLE_TYPE).to.exist;
+      expect(Role.DEFAULT_ROLE_TYPE).to.be.a('string');
+      expect(Role.DEFAULT_ROLE_TYPE).to.not.be.empty;
+    });
+
+    it('should expose acceptable role types as constant', function () {
+      expect(Role.ROLE_TYPES).to.exist;
+      expect(Role.ROLE_TYPES).to.be.an('array');
+      expect(Role.ROLE_TYPES).to.have.length.at.least(1);
+    });
+
   });
 
 

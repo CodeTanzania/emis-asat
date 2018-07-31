@@ -4,6 +4,8 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { models } = require('@codetanzania/majifix-common');
+const { PERMISSION_MODEL_NAME } = models;
 
 
 /* declarations */
@@ -48,6 +50,23 @@ describe('Role', function () {
       expect(description.trim).to.be.true;
       expect(description.searchable).to.be.true;
       expect(description.index).to.be.true;
+
+    });
+
+    it('should have permissions field', function () {
+
+      const permissions = Role.schema.tree.permissions;
+      const instance = Role.schema.paths.permissions.instance;
+
+      expect(instance).to.be.equal('Array');
+      expect(permissions).to.exist;
+      expect(permissions).to.be.an('object');
+      expect(permissions.type[0]).to.be.a('function');
+      expect(permissions.type[0].name).to.be.equal('ObjectId');
+      expect(permissions.ref).to.exist;
+      expect(permissions.ref).to.be.equal(PERMISSION_MODEL_NAME);
+      expect(permissions.exists).to.be.true;
+      expect(permissions.index).to.be.true;
 
     });
 

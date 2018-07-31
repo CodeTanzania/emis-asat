@@ -73,11 +73,13 @@ exports.definitions = {
 
 
 /* import routers*/
-const router = require(path.join(__dirname, 'lib', 'party.http.router'));
+const partyRouter = require(path.join(__dirname, 'lib', 'party.http.router'));
+const roleRouter = require(path.join(__dirname, 'lib', 'role.http.router'));
 
 
 /* export party router */
-exports.router = router;
+exports.partyRouter = partyRouter;
+exports.roleRouter = roleRouter;
 
 
 /* export app */
@@ -86,8 +88,9 @@ Object.defineProperty(exports, 'app', {
 
     //TODO bind oauth middlewares authenticate, token, authorize
 
-    /* bind party router */
-    app.mount(router);
+    /* bind routers */
+    app.mount(partyRouter);
+    app.mount(roleRouter);
     return app;
   }
 

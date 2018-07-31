@@ -7,7 +7,14 @@ const faker = require('@benmaruchu/faker');
 const { randomPoint } = require('mongoose-geojson-schemas');
 
 
-function sample() {
+function sampleRole() {
+  return {
+    name: faker.unique(faker.hacker.ingverb),
+    description: faker.lorem.paragraph()
+  };
+}
+
+function sampleParty() {
   return {
     name: faker.address.county(),
     avatar: faker.image.avatar(),
@@ -24,7 +31,13 @@ function sample() {
 }
 
 
-module.exports = function (size = 10) {
+exports.role = function role(size = 10) {
   size = size > 0 ? size : 10;
-  return _.times(size, sample);
+  return _.times(size, sampleRole);
+};
+
+
+exports.party = function party(size = 10) {
+  size = size > 0 ? size : 10;
+  return _.times(size, sampleParty);
 };

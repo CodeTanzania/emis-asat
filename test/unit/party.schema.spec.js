@@ -4,6 +4,8 @@
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
+const { models } = require('@codetanzania/majifix-common');
+const { ROLE_MODEL_NAME } = models;
 
 
 /* declarations */
@@ -259,6 +261,24 @@ describe('Party', function () {
           'Number');
 
       });
+
+    });
+
+
+    it('should have roles field', function () {
+
+      const roles = Party.schema.tree.roles;
+      const instance = Party.schema.paths.roles.instance;
+
+      expect(instance).to.be.equal('Array');
+      expect(roles).to.exist;
+      expect(roles).to.be.an('object');
+      expect(roles.type[0]).to.be.a('function');
+      expect(roles.type[0].name).to.be.equal('ObjectId');
+      expect(roles.ref).to.exist;
+      expect(roles.ref).to.be.equal(ROLE_MODEL_NAME);
+      expect(roles.exists).to.be.true;
+      expect(roles.index).to.be.true;
 
     });
 

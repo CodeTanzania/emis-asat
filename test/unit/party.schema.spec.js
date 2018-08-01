@@ -282,6 +282,20 @@ describe('Party', function () {
 
     });
 
+    it('should have phases field', function () {
+
+      const phases = Party.schema.tree.phases;
+      const instance = Party.schema.paths.phases.instance;
+
+      expect(instance).to.be.equal('Array');
+      expect(phases).to.exist;
+      expect(phases).to.be.an('object');
+      expect(phases.type[0]).to.be.a('function');
+      expect(phases.type[0].name).to.be.equal('String');
+      expect(phases.index).to.be.true;
+
+    });
+
 
   });
 

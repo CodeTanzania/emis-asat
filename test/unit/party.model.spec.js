@@ -68,6 +68,12 @@ describe('Party', function () {
       expect(Party.PARTY_TYPES).to.have.length.at.least(1);
     });
 
+    it('should expose acceptable disaster phases as constant', function () {
+      expect(Party.DISASTER_PHASES).to.exist;
+      expect(Party.DISASTER_PHASES).to.be.an('array');
+      expect(Party.DISASTER_PHASES).to.have.length.at.least(1);
+    });
+
   });
 
 

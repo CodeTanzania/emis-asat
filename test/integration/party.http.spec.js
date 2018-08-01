@@ -5,7 +5,7 @@
 const path = require('path');
 const request = require('supertest');
 const { expect } = require('chai');
-const { Party, router, app } = require(path.join(__dirname, '..', '..'));
+const { Party, partyRouter, app } = require(path.join(__dirname, '..', '..'));
 
 
 describe('Party', function () {
@@ -23,7 +23,7 @@ describe('Party', function () {
       party = Party.fake();
 
       request(app)
-        .post(`/v${router.apiVersion}/parties`)
+        .post(`/v${partyRouter.apiVersion}/parties`)
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
         .send(party)
@@ -46,7 +46,7 @@ describe('Party', function () {
     it('should handle HTTP GET on /parties', function (done) {
 
       request(app)
-        .get(`/v${router.apiVersion}/parties`)
+        .get(`/v${partyRouter.apiVersion}/parties`)
         .set('Accept', 'application/json')
         .expect(200)
         .expect('Content-Type', /json/)
@@ -72,7 +72,7 @@ describe('Party', function () {
 
       request(app)
         .get(
-          `/v${router.apiVersion}/parties/${party._id}`
+          `/v${partyRouter.apiVersion}/parties/${party._id}`
         )
         .set('Accept', 'application/json')
         .expect(200)
@@ -95,7 +95,7 @@ describe('Party', function () {
 
       request(app)
         .patch(
-          `/v${router.apiVersion}/parties/${party._id}`
+          `/v${partyRouter.apiVersion}/parties/${party._id}`
         )
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
@@ -123,7 +123,7 @@ describe('Party', function () {
 
       request(app)
         .put(
-          `/v${router.apiVersion}/parties/${party._id}`
+          `/v${partyRouter.apiVersion}/parties/${party._id}`
         )
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
@@ -150,7 +150,7 @@ describe('Party', function () {
 
       request(app)
         .delete(
-          `/v${router.apiVersion}/parties/${party._id}`
+          `/v${partyRouter.apiVersion}/parties/${party._id}`
         )
         .set('Accept', 'application/json')
         .expect(200)

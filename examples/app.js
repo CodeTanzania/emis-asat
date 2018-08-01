@@ -25,6 +25,11 @@ const {
 let roles = require('./samples').role(10);
 let parties = require('./samples').party(20);
 
+const { env } = require('@codetanzania/majifix-common');
+const { getArray } = env;
+const DISASTER_PHASES = [].concat(getArray('DISASTER_PHASES', ['Mitigation']));
+
+
 
 /* connect to mongoose */
 mongoose.connect(process.env.MONGODB_URI);
@@ -59,6 +64,7 @@ function boot() {
       parties = _.map(parties, function (party, index) {
         if ((index % 2 === 0)) {
           party.roles = _.take(roles, Math.ceil(index / 3));
+          party.phases = _.take(DISASTER_PHASES, Math.ceil(index / 8));
         }
         return party;
       });

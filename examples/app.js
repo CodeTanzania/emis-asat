@@ -15,6 +15,7 @@ const mongoose = require('mongoose');
 const {
   Role,
   Party,
+  Permission,
   partyRouter,
   info,
   app,
@@ -51,9 +52,23 @@ function boot() {
       });
     },
 
-    function seedRole(next) {
+    function clear(next) {
+      Permission.remove(function ( /*error, results*/ ) {
+        next();
+      });
+    },
+
+    function seedPermission(next) {
+      const permissions = Permission.fake(5);
+      Permission.create(permissions, next);
+    },
+
+    function seedRole(permissions, next) {
       /* fake parties */
       roles = _.map(roles, function (role, index) {
+        if (index % 2 === 0) {
+          role.permissions = _.take(permissions, Math.ceil(index / 3));
+        }
         return role;
       });
       Role.create(roles, next);
@@ -90,9 +105,7 @@ function boot() {
 
     /* fire the app */
     app.start(function (error, env) {
-      console.log(
-        `visit http://0.0.0.0:${env.PORT}/v${partyRouter.apiVersion}/parties`
-      );
+      console.log(`visit http://0.0.0.0:${env.PORT}`);
     });
 
   });

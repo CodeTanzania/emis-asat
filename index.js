@@ -75,11 +75,14 @@ exports.definitions = {
 /* import routers*/
 const partyRouter = require(path.join(__dirname, 'lib', 'party.http.router'));
 const roleRouter = require(path.join(__dirname, 'lib', 'role.http.router'));
+const permissionRouter =
+  require(path.join(__dirname, 'lib', 'permission.http.router'));
 
 
 /* export party router */
 exports.partyRouter = partyRouter;
 exports.roleRouter = roleRouter;
+exports.permissionRouter = permissionRouter;
 
 
 /* export app */
@@ -91,6 +94,7 @@ Object.defineProperty(exports, 'app', {
     /* bind routers */
     app.mount(partyRouter);
     app.mount(roleRouter);
+    app.mount(permissionRouter);
     return app;
   }
 

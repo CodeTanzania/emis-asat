@@ -18,6 +18,23 @@ describe('Party', function () {
 
   describe('Schema', function () {
 
+    it('should have party field', function () {
+
+      const party = Party.schema.tree.party;
+      const instance = Party.schema.paths.party.instance;
+
+      expect(instance).to.be.equal('ObjectID');
+      expect(party).to.exist;
+      expect(party).to.be.an('object');
+      expect(party.type).to.be.a('function');
+      expect(party.type.name).to.be.equal('ObjectId');
+      expect(party.ref).to.exist;
+      expect(party.exists).to.be.true;
+      expect(party.autopopulate).to.exist;
+      expect(party.index).to.be.true;
+
+    });
+
     it('should have type field', function () {
 
       const type = Party.schema.tree.type;

@@ -23,12 +23,13 @@ const {
 } = require(path.join(__dirname, '..'));
 
 /* generate fake data */
-let roles = require('./samples').role(10);
 let parties = require('./samples').party(20);
 
 const { env } = require('@codetanzania/majifix-common');
 const { getArray } = env;
+const PARTY_TYPES = [].concat(getArray('PARTY_TYPES', ['Other']));
 const DISASTER_PHASES = [].concat(getArray('DISASTER_PHASES', ['Mitigation']));
+const PARTY_OWNERSHIP = [].concat(getArray('PARTY_OWNERSHIP', ['Other']));
 
 
 
@@ -65,10 +66,9 @@ function boot() {
 
     function seedRole(permissions, next) {
       /* fake parties */
+      let roles = Role.fake(3);
       roles = _.map(roles, function (role, index) {
-        if (index % 2 === 0) {
-          role.permissions = _.take(permissions, Math.ceil(index / 3));
-        }
+        role.permissions = _.take(permissions, (index % 3) + 1);
         return role;
       });
       Role.create(roles, next);
@@ -77,9 +77,14 @@ function boot() {
     function seedParty(roles, next) {
       /* fake parties */
       parties = _.map(parties, function (party, index) {
-        if ((index % 2 === 0)) {
-          party.roles = _.take(roles, Math.ceil(index / 3));
-          party.phases = _.take(DISASTER_PHASES, Math.ceil(index / 8));
+        party.type = _.nth(PARTY_TYPES, index % PARTY_TYPES.length);
+        party.ownership =
+          _.nth(PARTY_OWNERSHIP, index % PARTY_OWNERSHIP.length);
+        party.roles = _.take(roles, (index % roles.length) + 1);
+        if (index % 2 === 0) {
+          party.phases =
+            _.take(DISASTER_PHASES, (index % DISASTER_PHASES.length) +
+              1);
         }
         return party;
       });

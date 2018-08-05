@@ -11,6 +11,8 @@ const path = require('path');
 const _ = require('lodash');
 const async = require('async');
 const mongoose = require('mongoose');
+const { env } = require('@codetanzania/majifix-common');
+const { getStrings } = env;
 // mongoose.set('debug', true);
 const {
   Role,
@@ -24,12 +26,9 @@ const {
 
 /* generate fake data */
 let parties = require('./samples').party(20);
-
-const { env } = require('@codetanzania/majifix-common');
-const { getArray } = env;
-const PARTY_TYPES = [].concat(getArray('PARTY_TYPES', ['Other']));
-const DISASTER_PHASES = [].concat(getArray('DISASTER_PHASES', ['Mitigation']));
-const PARTY_OWNERSHIP = [].concat(getArray('PARTY_OWNERSHIP', ['Other']));
+const PARTY_TYPES = getStrings('PARTY_TYPES', ['Other']);
+const DISASTER_PHASES = getStrings('DISASTER_PHASES', ['Mitigation']);
+const PARTY_OWNERSHIP = getStrings('PARTY_OWNERSHIP', ['Other']);
 
 
 

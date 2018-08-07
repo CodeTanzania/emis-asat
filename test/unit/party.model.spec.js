@@ -143,6 +143,18 @@ describe('Party', function () {
       expect(Party.DISASTER_PHASES).to.have.length.at.least(1);
     });
 
+    it('should expose default party owneship as constant', function () {
+      expect(Party.DEFAULT_PARTY_OWNERSHIP).to.exist;
+      expect(Party.DEFAULT_PARTY_OWNERSHIP).to.be.a('string');
+      expect(Party.DEFAULT_PARTY_OWNERSHIP).to.not.be.empty;
+    });
+
+    it('should expose acceptable party ownership as constant', function () {
+      expect(Party.PARTY_OWNERSHIP).to.exist;
+      expect(Party.PARTY_OWNERSHIP).to.be.an('array');
+      expect(Party.PARTY_OWNERSHIP).to.have.length.at.least(1);
+    });
+
   });
 
 

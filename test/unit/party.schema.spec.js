@@ -18,6 +18,23 @@ describe('Party', function () {
 
   describe('Schema', function () {
 
+    it('should have party field', function () {
+
+      const party = Party.schema.tree.party;
+      const instance = Party.schema.paths.party.instance;
+
+      expect(instance).to.be.equal('ObjectID');
+      expect(party).to.exist;
+      expect(party).to.be.an('object');
+      expect(party.type).to.be.a('function');
+      expect(party.type.name).to.be.equal('ObjectId');
+      expect(party.ref).to.exist;
+      expect(party.exists).to.be.true;
+      expect(party.autopopulate).to.exist;
+      expect(party.index).to.be.true;
+
+    });
+
     it('should have type field', function () {
 
       const type = Party.schema.tree.type;
@@ -33,6 +50,24 @@ describe('Party', function () {
       expect(type.index).to.be.true;
       expect(type.default).to.exist;
       expect(type.searchable).to.be.true;
+
+    });
+
+    it('should have ownership field', function () {
+
+      const ownership = Party.schema.tree.ownership;
+      const instance = Party.schema.paths.ownership.instance;
+
+      expect(instance).to.be.equal('String');
+      expect(ownership).to.exist;
+      expect(ownership).to.be.an('object');
+      expect(ownership.type).to.be.a('function');
+      expect(ownership.type.name).to.be.equal('String');
+      expect(ownership.trim).to.be.true;
+      expect(ownership.enum).to.exist;
+      expect(ownership.index).to.be.true;
+      expect(ownership.default).to.exist;
+      expect(ownership.searchable).to.be.true;
 
     });
 

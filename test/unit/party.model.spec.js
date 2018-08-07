@@ -31,7 +31,7 @@ describe('Party', function () {
 
       it('should be valid if name is provided', function (done) {
         const party = new Party({
-          name: Party.fake()
+          name: 'test'
         });
 
         party.validate(function (err) {
@@ -54,7 +54,7 @@ describe('Party', function () {
 
       it('should be valid if phone is provided', function (done) {
         const party = new Party({
-          phone: Party.fake()
+          phone: '+255658556677'
         });
 
         party.validate(function (err) {
@@ -76,7 +76,7 @@ describe('Party', function () {
 
       it('should be valid if email is provided', function (done) {
         const party = new Party({
-          email: Party.fake()
+          email: 'test@gmail.com'
         });
         party.validate(function (err) {
           expect(err.errors.email).to.not.exist;

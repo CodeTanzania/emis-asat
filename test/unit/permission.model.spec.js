@@ -50,14 +50,10 @@ describe('Permission', function () {
 
       it('should check actiion error validity', function (done) {
         const permission = new Permission({
-
-          action:{
-            resource:'test',
-            action:1234
-          },
+            resource:null,
+            action:null
         });
-        console.log('action permission');
-        console.log(permission);
+
         permission.validate(function (error) {
           expect(error.errors.action).to.exist;
           done();
@@ -76,14 +72,14 @@ describe('Permission', function () {
     describe('Wildcard', function () {
 
       it('should check for wildcard error validation', function (done) {
-        const permission = new Permission({
-            wildcard: 2345,
-            resource:'test',
-            action:1234
-        });
-        console.log(permission);
+        const wildcard = {
+          wildcard: null,
+          resource: null,
+          action:null
+        };
+        const permission = new Permission(wildcard);
         permission.validate(function (error) {
-          expect(error).to.not.exist;
+          expect(error).to.exist;
           done();
         });
       });

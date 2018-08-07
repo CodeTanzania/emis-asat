@@ -3,7 +3,9 @@
 
 /* dependencies */
 const path = require('path');
-const { expect } = require('chai');
+const {
+  expect
+} = require('chai');
 
 
 /* declarations */
@@ -16,6 +18,73 @@ describe('Party', function () {
 
   describe('Validations', function () {
     //TODO
+    describe('Validate Name', function () {
+
+      it('should be invalid if name is empty', function (done) {
+        const party = new Party();
+
+        party.validate(function (err) {
+          expect(err.errors.name).to.exist;
+          done();
+        });
+      });
+
+      it('should be valid if name is provided', function (done) {
+        const party = new Party({
+          name: 'test'
+        });
+
+        party.validate(function (err) {
+          expect(err.errors.name).to.not.exist;
+          done();
+        });
+      });
+
+    });
+
+    describe('Validate phone', function () {
+      it('should be invalid if name is empty', function (done) {
+        const party = new Party();
+
+        party.validate(function (err) {
+          expect(err.errors.phone).to.exist;
+          done();
+        });
+      });
+
+      it('should be valid if phone is provided', function (done) {
+        const party = new Party({
+          phone: '+255658556677'
+        });
+
+        party.validate(function (err) {
+          expect(err.errors.phone).to.not.exist;
+          done();
+        });
+      });
+    });
+
+    describe('Validate email', function () {
+      it('should be invalid if email is empty', function (done) {
+        const party = new Party();
+
+        party.validate(function (err) {
+          expect(err.errors.email).to.exist;
+          done();
+        });
+      });
+
+      it('should be valid if email is provided', function (done) {
+        const party = new Party({
+          email: 'test@gmail.com'
+        });
+        party.validate(function (err) {
+          expect(err.errors.email).to.not.exist;
+          done();
+        });
+      });
+    });
+
   });
 
 

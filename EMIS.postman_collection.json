@@ -302,6 +302,38 @@
 				"description": "Update specific party"
 			},
 			"response": []
+		},
+		{
+			"name": "https://emis-asat.herokuapp.com/v1/parties?q=avon",
+			"request": {
+				"url": {
+					"raw": "https://emis-asat.herokuapp.com/v1/parties?q=avon",
+					"protocol": "https",
+					"host": [
+						"emis-asat",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"parties"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "avon",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Search Parties"
+			},
+			"response": []
 		}
 	]
 }

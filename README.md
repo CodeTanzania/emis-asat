@@ -1,4 +1,4 @@
-# emis-asat(WIP)
+# emis-asat(DEPRECATED. Use [https://github.com/CodeTanzania/emis-stakeholder](https://github.com/CodeTanzania/emis-stakeholder))
 
 [![Build Status](https://travis-ci.org/CodeTanzania/emis-asat.svg?branch=develop)](https://travis-ci.org/CodeTanzania/emis-asat)
 [![Dependencies Status](https://david-dm.org/CodeTanzania/emis-asat/status.svg?style=flat-square)](https://david-dm.org/CodeTanzania/emis-asat)
